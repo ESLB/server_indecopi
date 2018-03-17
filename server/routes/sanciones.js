@@ -41,5 +41,31 @@ router.post('/', (req, res)=> {
     });
 });
 
+router.post('/array', (req, res) => {
+  var todo = req.body;
+  var tamano = todo.array.length;
+  var i;
+  for (i = 0; i < tamano; i++) {
+      var elemento = todo.array[i];
+      var sancion = new Sancion({
+        departamento: elemento.departamento,
+        provincia: elemento.provincia,
+        distrito: elemento.distrito,
+        actividadEconomica: elemento.actividadEconomica,
+        razonSocial: elemento.razonSocial,
+        numeroIdentificacion: elemento.numeroIdentificacion,
+        servicioOProducto: elemento.servicioOProducto,
+        hechoInfractor: elemento.hechoInfractor,
+        tipoDeAmonestacion: elemento.tipoDeAmonestacion,
+        montoMulta: elemento.montoMulta,
+        numeroResolucion: elemento.numeroResolucion,
+        anoResolucion: elemento.anoResolucion,
+        oficinaResponsable: elemento.oficinaResponsable
+      });
+      sancion.save();
+  }
+      res.send("Hola " + tamano);
+});
+
 
 module.exports = router;

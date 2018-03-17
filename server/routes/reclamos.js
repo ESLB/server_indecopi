@@ -42,4 +42,32 @@ router.post('/', (req, res)=> {
     });
 });
 
+router.post('/array', (req, res) => {
+  var todo = req.body;
+  var tamano = todo.array.length;
+  var i;
+  for (i = 0; i < tamano; i++) {
+      var elemento = todo.array[i];
+      var reclamo = new Reclamo({
+        departamento: elemento.departamento,
+        provincia: elemento.provincia,
+        distrito: elemento.distrito,
+        actividadEconomica: elemento.actividadEconomica,
+        razonSocial: elemento.razonSocial,
+        numeroIdentificacion: elemento.numeroIdentificacion,
+        rubro: elemento.rubro,
+        motivoReclamo: elemento.motivoReclamo,
+        comoSeResolvio: elemento.comoSeResolvio,
+        duracionReclamo: elemento.duracionReclamo,
+        numeroReclamo: elemento.numeroReclamo,
+        ano: elemento.ano,
+        oficinaAtendedora: elemento.oficinaAtendedora,
+        sedesEnElDepartamento: elemento.sedesEnElDepartamento
+      });
+      reclamo.save();
+  }
+      res.send("Hola " + tamano);
+});
+
+
 module.exports = router;
