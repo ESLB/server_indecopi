@@ -23,7 +23,7 @@ router.post('/', (req, res)=> {
     sancion.save().then((doc)=>{
         var id = _.pick(doc, ['_id']);
 
-        Solicitud.findById(id).then((sancion) => {
+        Sancion.findById(id).then((sancion) => {
           res.send(sancion);
         });
     }, (e) => {

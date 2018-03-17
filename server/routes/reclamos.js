@@ -17,7 +17,7 @@ router.post('/', (req, res)=> {
     var reclamo = new Reclamo({
         departamento: req.body.departamento,
         numeroIdentificacion: req.body.numeroIdentificacion,
-        hechoInfractor: req.body.hechoInfractor
+        motivoReclamo: req.body.motivoReclamo
     });
 
     reclamo.save().then((doc)=>{
