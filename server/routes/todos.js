@@ -51,8 +51,16 @@ router.post('/', (req, res) => {
 
 router.post('/array', (req, res) => {
   var todo = req.body;
-  var entrega = todo[0];
   var tamano = todo.array.length;
+
+  var i;
+  for (i = 0; i < tamano; i++) {
+      var elemento = new Todo({
+        text: todo.array[i].text;
+      });
+      elemento.save();
+  }
+
       res.send("Hola " + tamano);
 });
 
