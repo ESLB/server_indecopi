@@ -9,6 +9,8 @@ var {Jugador} = require('./models/jugador');
 var {Equipo} = require('./models/equipo');
 var {Solicitud} = require('./models/solicitud');
 var {Reto} = require('./models/reto');
+var {Reclamo} = require('./models/reclamo');
+var {Sancion} = require('./models/sancion');
 
 //CARGAR RUTAS
 const todos = require('./routes/todos');
@@ -17,6 +19,8 @@ const equipos = require('./routes/equipos');
 const retos = require('./routes/retos');
 const solicitudes = require('./routes/solicitudes');
 const login = require('./routes/login');
+const sanciones = require('./routes/sanciones');
+const reclamos = require('./routes/reclamos');
 
 var app = express();
 app.use(bodyParser.json());
@@ -28,6 +32,8 @@ app.use('/equipos', equipos);
 app.use('/retos', retos);
 app.use('/solicitudes', solicitudes);
 app.use('/login', login);
+app.use('/sanciones', sanciones);
+app.use('/reclamos', reclamos);
 
 //SERVIDOR
 const port = process.env.PORT || 3000;
