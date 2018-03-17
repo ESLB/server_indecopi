@@ -16,8 +16,19 @@ router.get('/', (req, res) =>{
 router.post('/', (req, res)=> {
     var reclamo = new Reclamo({
         departamento: req.body.departamento,
+        provincia: req.body.provincia,
+        distrito: req.body.distrito,
+        actividadEconomica: req.body.actividadEconomica,
+        razonSocial: req.body.razonSocial,
         numeroIdentificacion: req.body.numeroIdentificacion,
-        motivoReclamo: req.body.motivoReclamo
+        rubro: req.body.rubro,
+        motivoReclamo: req.body.motivoReclamo,
+        comoSeResolvio: req.body.comoSeResolvio,
+        duracionReclamo: req.body.duracionReclamo,
+        numeroReclamo: req.body.numeroReclamo,
+        ano: req.body.ano,
+        oficinaAtendedora: req.body.oficinaAtendedora,
+        sedesEnElDepartamento: req.body.sedesEnElDepartamento
     });
 
     reclamo.save().then((doc)=>{

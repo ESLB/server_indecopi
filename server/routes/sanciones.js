@@ -16,8 +16,18 @@ router.get('/', (req, res) =>{
 router.post('/', (req, res)=> {
     var sancion = new Sancion({
         departamento: req.body.departamento,
+        provincia: req.body.provincia,
+        distrito: req.body.distrito,
+        actividadEconomica: req.body.actividadEconomica,
+        razonSocial: req.body.razonSocial,
         numeroIdentificacion: req.body.numeroIdentificacion,
-        hechoInfractor: req.body.hechoInfractor
+        servicioOProducto: req.body.servicioOProducto,
+        hechoInfractor: req.body.hechoInfractor,
+        tipoDeAmonestacion: req.body.tipoDeAmonestacion,
+        montoMulta: req.body.montoMulta,
+        numeroResolucion: req.body.numeroResolucion,
+        anoResolucion: req.body.anoResolucion,
+        oficinaResponsable: req.body.oficinaResponsable
     });
 
     sancion.save().then((doc)=>{
