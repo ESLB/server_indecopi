@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
 router.post('/array', (req, res) => {
   var todo = req.body;
   var entrega = todo[0];
-      res.send(entrega);
+      res.send(todo.array[0]);
 });
 
 router.patch('/:id', (req, res) => {
