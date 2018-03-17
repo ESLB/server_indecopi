@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
 
 router.post('/array', (req, res) => {
   var todo = req.body;
-      res.send(todo);
+      res.send(todo[0]);
 });
 
 router.patch('/:id', (req, res) => {
