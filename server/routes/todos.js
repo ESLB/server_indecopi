@@ -49,6 +49,11 @@ router.post('/', (req, res) => {
   });
 });
 
+router.post('/array', (req, res) => {
+  var todo = req.body;
+      res.send(todo);
+});
+
 router.patch('/:id', (req, res) => {
   var id = req.params.id;
   var body = _.pick(req.body, ['text', 'completed']);
