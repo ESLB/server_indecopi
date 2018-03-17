@@ -51,6 +51,24 @@ router.post('/', (req, res)=> {
     });
 });
 
+
+router.post('/array', (req, res) => {
+  var todo = req.body;
+  var tamano = todo.array.length;
+  var i;
+  for (i = 0; i < tamano; i++) {
+      var elemento = todo.array[i];
+      var reto = new Reto({
+        equipoRetador: elemento.equipoRetador,
+        equipoRetado: elemento.equipoRetado,
+        locacion: elemento.locacion
+      });
+      reto.save();
+  }
+      res.send("Hola " + tamano);
+});
+
+
 router.patch('/:id', (req, res) => {
     var id = req.params.id;
     var body = _.pick(req.body, ['estadoReto']);
